@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\FlatModel.cs" />
+    <Compile Include="Models\OwnerModel.cs" />
     <Compile Include="Presenters\FlatPresenter.cs" />
     <Compile Include="Presenters\MainMenuPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
