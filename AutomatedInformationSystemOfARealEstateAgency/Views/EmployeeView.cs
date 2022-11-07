@@ -35,20 +35,17 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
         public string UserLogin
         {
             get { return LoginInputField.Text; }
-            set { LoginInputField.Text = value; }
+            set { }
         }
 
         public string UserPassword
         {
             get { return PassWordInputField.Text; }
-            set { PassWordInputField.Text = value; }
+            set { }
         }
 
         // События
         public event EventHandler SignInEvent;
-        public event EventHandler Successful;
-        public event EventHandler Unsuccessful;
-        public event EventHandler ShowEmployeeView;
 
         // Единождое открытие
         private static EmployeeView instance;

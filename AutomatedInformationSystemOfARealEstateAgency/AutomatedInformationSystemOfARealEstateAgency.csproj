@@ -54,6 +54,8 @@
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\FlatModel.cs" />
     <Compile Include="Models\OwnerModel.cs" />
+    <Compile Include="Presenters\AddNewFlatPresenter.cs" />
+    <Compile Include="Presenters\AddNewOwnerPresenter.cs" />
     <Compile Include="Presenters\FlatPresenter.cs" />
     <Compile Include="Presenters\MainMenuPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
@@ -102,8 +104,12 @@
     <Compile Include="Views\EmployeeView.Designer.cs">
       <DependentUpon>EmployeeView.cs</DependentUpon>
     </Compile>
+    <Compile Include="_Repositories\AddNewFlatRepository.cs" />
+    <Compile Include="_Repositories\AddNewOwnerRepository.cs" />
     <Compile Include="_Repositories\BaseRepository.cs" />
     <Compile Include="_Repositories\FlatRepository.cs" />
+    <Compile Include="_Repositories\Interfaces\IAddNewFlatRepository.cs" />
+    <Compile Include="_Repositories\Interfaces\IAddNewOwnerRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IFlatRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IMainMenuRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IEmployeeRepository.cs" />

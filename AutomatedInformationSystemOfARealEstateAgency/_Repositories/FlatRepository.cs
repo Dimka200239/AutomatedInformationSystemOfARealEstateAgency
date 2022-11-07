@@ -33,8 +33,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
         public List<FlatModel> GetAllFlatInformation(string inputValue)
         {
             var flatList = new List<FlatModel>();
+            flatList.Clear();
 
-            var newValueString = "";
             var newValueInt = -1;
             float newValueFloat = -1;
 
@@ -49,11 +49,12 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                     {
                         command.CommandText = @"SELECT *
                                                 FROM Apartments
-                                                WHERE countOfRoomsOfApartment LIKE @newValueInt + '%'
-                                                    OR floorOfApartment LIKE @newValueInt + '%'
-                                                    OR builtYearOfApartment LIKE @newValueInt + '%'
-                                                    OR renovationYearOfApartment LIKE @newValueInt + '%'
-                                                    OR numberOfOwnersOfApartment LIKE @newValueInt + '%'";
+                                                WHERE countOfRoomsOfApartment <= @newValueInt
+                                                    OR floorOfApartment <= @newValueInt
+                                                    OR numberOfApartment <= @newValueInt
+                                                    OR builtYearOfApartment <= @newValueInt
+                                                    OR renovationYearOfApartment <= @newValueInt
+                                                    OR numberOfOwnersOfApartment <= @newValueInt";
 
                         command.Parameters.Add("@newValueInt", SqlDbType.Int).Value = newValueInt;
                     }
@@ -61,12 +62,12 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                     {
                         command.CommandText = @"SELECT *
                                                 FROM Apartments
-                                                WHERE totalAreaOfApartment LIKE @newValueFloat + '%'
-                                                    OR kitchenAreaOfApartment LIKE @newValueFloat + '%'
-                                                    OR distanceFromMetroOfApartment LIKE @newValueFloat + '%'
-                                                    OR distanceFromCenterOfApartment LIKE @newValueFloat + '%'
-                                                    OR livingSpaceOfApartment LIKE @newValueFloat + '%'
-                                                    OR apartmentPrice LIKE @newValueFloat + '%'";
+                                                WHERE totalAreaOfApartment <= @newValueFloat
+                                                    OR kitchenAreaOfApartment <= @newValueFloat
+                                                    OR distanceFromMetroOfApartment <= @newValueFloat
+                                                    OR distanceFromCenterOfApartment <= @newValueFloat
+                                                    OR livingSpaceOfApartment <= @newValueFloat
+                                                    OR apartmentPrice <= @newValueFloat";
 
                         command.Parameters.Add("@newValueFloat", SqlDbType.Float).Value = newValueFloat;
                     }
@@ -74,7 +75,9 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                     {
                         command.CommandText = @"SELECT *
                                                 FROM Apartments
-                                                WHERE addressOfApartment LIKE @newValueString + '%'
+                                                WHERE cityOfApartment LIKE @newValueString + '%'
+                                                    OR avenueOfApartment LIKE @newValueString + '%'
+                                                    OR houseOfApartment LIKE @newValueString + '%'
                                                     OR presenceOfABalconyOfApartment LIKE @newValueString + '%'
                                                     OR bathroomOfApartment LIKE @newValueString + '%'
                                                     OR availabilityOfParkingOfApartment LIKE @newValueString + '%'
@@ -84,7 +87,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                                                     OR descriptionOfApartment LIKE @newValueString + '%'
                                                     OR statusOfApartment LIKE @newValueString + '%'";
 
-                        command.Parameters.Add("@newValueString", SqlDbType.NVarChar).Value = newValueString;
+                        command.Parameters.Add("@newValueString", SqlDbType.NVarChar).Value = inputValue;
                     }
                     
 
@@ -95,27 +98,30 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                             var newFlat = new FlatModel();
 
                             newFlat.IdOfApartment = (Guid)reader[0];
-                            newFlat.AddressOfApartment = reader[1].ToString();
-                            newFlat.CountOfRoomsOfApartment = (int)reader[2];
-                            newFlat.TotalAreaOfApartment = (float)reader[3];
-                            newFlat.KitchenAreaOfApartment = (float)reader[4];
-                            newFlat.PresenceOfABalconyOfApartment = reader[5].ToString();
-                            newFlat.BathroomOfApartment = reader[6].ToString();
-                            newFlat.FloorOfApartment = (int)reader[7];
-                            newFlat.BuiltYearOfApartment = (int)reader[8];
-                            newFlat.RenovationYearOfApartment = (int)reader[9];
-                            newFlat.AvailabilityOfParkingOfApartment = reader[10].ToString();
-                            newFlat.DistanceFromMetroOfApartment = (float)reader[11];
-                            newFlat.DistanceFromCenterOfApartment = (float)reader[12];
-                            newFlat.LivingSpaceOfApartment = (float)reader[13];
-                            newFlat.RoomTypeOfApartment = reader[14].ToString();
-                            newFlat.WindowsExitOfApartment = reader[15].ToString();
-                            newFlat.RepairTypeOfApartment = reader[16].ToString();
-                            newFlat.NumberOfOwnersOfApartment = (int)reader[17];
-                            newFlat.DescriptionOfApartment = reader[18].ToString();
-                            newFlat.ApartmentPrice = (float)reader[19];
-                            newFlat.ApartmentOwner = (Guid)reader[20];
-                            newFlat.StatusOfApartment = reader[21].ToString();
+                            newFlat.CityOfApartment = reader[1].ToString();
+                            newFlat.AvenueOfApartment = reader[2].ToString();
+                            newFlat.HouseOfApartment = reader[3].ToString();
+                            newFlat.CountOfRoomsOfApartment = (int)reader[4];
+                            newFlat.TotalAreaOfApartment = float.Parse(reader[5].ToString());
+                            newFlat.KitchenAreaOfApartment = float.Parse(reader[6].ToString());
+                            newFlat.PresenceOfABalconyOfApartment = reader[7].ToString();
+                            newFlat.BathroomOfApartment = reader[8].ToString();
+                            newFlat.FloorOfApartment = (int)reader[9];
+                            newFlat.NumberOfApartment = (int)reader[10];
+                            newFlat.BuiltYearOfApartment = (int)reader[11];
+                            newFlat.RenovationYearOfApartment = (int)reader[12];
+                            newFlat.AvailabilityOfParkingOfApartment = reader[13].ToString();
+                            newFlat.DistanceFromMetroOfApartment = float.Parse(reader[14].ToString());
+                            newFlat.DistanceFromCenterOfApartment = float.Parse(reader[15].ToString());
+                            newFlat.LivingSpaceOfApartment = float.Parse(reader[16].ToString());
+                            newFlat.RoomTypeOfApartment = reader[17].ToString();
+                            newFlat.WindowsExitOfApartment = reader[18].ToString();
+                            newFlat.RepairTypeOfApartment = reader[19].ToString();
+                            newFlat.NumberOfOwnersOfApartment = (int)reader[20];
+                            newFlat.DescriptionOfApartment = reader[21].ToString();
+                            newFlat.ApartmentPrice = float.Parse(reader[22].ToString());
+                            newFlat.ApartmentOwner = (Guid)reader[23];
+                            newFlat.StatusOfApartment = reader[24].ToString();
 
                             flatList.Add(newFlat);
                         }

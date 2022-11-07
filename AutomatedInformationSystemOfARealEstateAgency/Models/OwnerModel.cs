@@ -17,7 +17,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         private string serNameOfOwner;
         private string patronymicOfOwner;
         private int yearOfBirthOfOwner;
-        private int phoneOfOwner;
+        private string phoneOfOwner;
         private string passportSeriesOfOwner;
         private string passportNumberOfOwner;
         private string passportSubdivisionCodeOfOwner;
@@ -66,7 +66,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
 
         [DisplayName("Owner's PhoneOfOwner")]
         [Required(ErrorMessage = "Owner's PhoneOfOwner is required")]
-        public int PhoneOfOwner
+        public string PhoneOfOwner
         {
             get { return phoneOfOwner; }
             set { phoneOfOwner = value; }

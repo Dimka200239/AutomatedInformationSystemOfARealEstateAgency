@@ -26,6 +26,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         // Поля для закрыытия формы
 
         IFlatView flatView = null;
+        IAddNewOwnerView addNewOwnerView = null;
 
         /// <summary>
         /// Конструктор класса
@@ -59,6 +60,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="e"></param>
         private void ShowAllFlats(object sender, EventArgs e)
         {
+            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
+
             IFlatView newView = FlatView.GetInstance((MainView)mainView);
             IFlatRepository repository = new FlatRepository(sqlConnectionString);
             new FlatPresenter(mainView, newView, repository, sqlConnectionString);
@@ -74,6 +77,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private void ShowAllClients(object sender, EventArgs e)
         {
             if (flatView != null) { flatView.Close(); }
+            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
         }
 
         /// <summary>
@@ -84,6 +88,12 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private void AddNewFlat(object sender, EventArgs e)
         {
             if (flatView != null) { flatView.Close(); }
+
+            IAddNewOwnerView newView = AddNewOwnerView.GetInstance((MainView)mainView);
+            IAddNewOwnerRepository repository = new AddNewOwnerRepository(sqlConnectionString);
+            new AddNewOwnerPresenter(mainView, newView, repository, sqlConnectionString);
+
+            addNewOwnerView = newView;
         }
 
         /// <summary>
@@ -94,6 +104,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private void ShowShoppingStore(object sender, EventArgs e)
         {
             if (flatView != null) { flatView.Close(); }
+            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
         }
 
         /// <summary>
@@ -104,6 +115,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private void Exit(object sender, EventArgs e)
         {
             if (flatView != null) { flatView.Close(); }
+            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
         }
     }
 }

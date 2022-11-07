@@ -15,13 +15,16 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         // Поля класса
 
         private Guid idOfApartment;
-        private string addressOfApartment;
+        private string cityOfApartment;
+        private string avenueOfApartment;
+        private string houseOfApartment;
         private int countOfRoomsOfApartment;
         private float totalAreaOfApartment;
         private float kitchenAreaOfApartment;
         private string presenceOfABalconyOfApartment;
         private string bathroomOfApartment;
         private int floorOfApartment;
+        private int numberOfApartment;
         private int builtYearOfApartment;
         private int renovationYearOfApartment;
         private string availabilityOfParkingOfApartment;
@@ -46,11 +49,25 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { idOfApartment = value; }
         }
 
-        [DisplayName("Flat's AddressOfApartment")]
-        public string AddressOfApartment
+        [DisplayName("Flat's cityOfApartment")]
+        public string CityOfApartment
         {
-            get { return addressOfApartment; }
-            set { addressOfApartment = value; }
+            get { return cityOfApartment; }
+            set { cityOfApartment = value; }
+        }
+
+        [DisplayName("Flat's AvenueOfApartment")]
+        public string AvenueOfApartment
+        {
+            get { return avenueOfApartment; }
+            set { avenueOfApartment = value; }
+        }
+
+        [DisplayName("Flat's HouseOfApartment")]
+        public string HouseOfApartment
+        {
+            get { return houseOfApartment; }
+            set { houseOfApartment = value; }
         }
 
         [DisplayName("Flat's CountOfRoomsOfApartment")]
@@ -93,6 +110,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         {
             get { return floorOfApartment; }
             set { floorOfApartment = value; }
+        }
+
+        [DisplayName("Flat's NumberOfApartment")]
+        public int NumberOfApartment
+        {
+            get { return numberOfApartment; }
+            set { numberOfApartment = value; }
         }
 
         [DisplayName("Flat's BuiltYearOfApartment")]

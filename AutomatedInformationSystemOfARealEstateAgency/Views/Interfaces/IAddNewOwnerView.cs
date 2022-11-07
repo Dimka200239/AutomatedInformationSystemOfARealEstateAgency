@@ -12,7 +12,16 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces
         void Hide();
         void Close();
 
-        void GetAllInputValueOfNewOwner();
+        void ShowInformation(string message);
+
+        string GetOwnerName { get; set; }
+        string GetOwnerSerName { get; set; }
+        string GetOwnerpatronymic { get; set; }
+        int GetOwnerYearOfBirth { get; set; }
+        string GetOwnerPhone { get; set; }
+        string GetOwnerSeriesPassport { get; set; }
+        string GetOwnerNumberPassport { get; set; }
+        string GetOwnerSubdivisionCodePassport { get; set; }
 
         event EventHandler AddNewOwnerEvent;
     }

@@ -79,6 +79,9 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             flatListInformation.Add(DataSourseFlat[19, index].Value.ToString());
             flatListInformation.Add(DataSourseFlat[20, index].Value.ToString());
             flatListInformation.Add(DataSourseFlat[21, index].Value.ToString());
+            flatListInformation.Add(DataSourseFlat[22, index].Value.ToString());
+            flatListInformation.Add(DataSourseFlat[23, index].Value.ToString());
+            flatListInformation.Add(DataSourseFlat[24, index].Value.ToString());
 
             return flatListInformation;
         }
@@ -87,13 +90,16 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
         {
             DataSourseFlat.DataSource = flatList;
             DataSourseFlat.Columns["IdOfApartment"].ReadOnly = true;
-            DataSourseFlat.Columns["AddressOfApartment"].ReadOnly = true;
+            DataSourseFlat.Columns["CityOfApartment"].ReadOnly = true;
+            DataSourseFlat.Columns["AvenueOfApartment"].ReadOnly = true;
+            DataSourseFlat.Columns["HouseOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["CountOfRoomsOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["TotalAreaOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["KitchenAreaOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["PresenceOfABalconyOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["BathroomOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["FloorOfApartment"].ReadOnly = true;
+            DataSourseFlat.Columns["NumberOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["BuiltYearOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["RenovationYearOfApartment"].ReadOnly = true;
             DataSourseFlat.Columns["AvailabilityOfParkingOfApartment"].ReadOnly = true;
