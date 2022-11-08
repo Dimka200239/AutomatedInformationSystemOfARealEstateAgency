@@ -38,6 +38,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
             // Подписка на методы обработчика событий для просмотра событий
             this.flatView.SearchFlatEvent += SearchFlat;
             this.flatView.ShowInfoAboutFlatEvent += ShowInfoAboutFlat;
+            this.flatView.ArrangeApartmentEvent += ArrangeApartment;
 
             // Показ представления
             this.flatView.Show();
@@ -61,6 +62,20 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ShowInfoAboutFlat(object sender, EventArgs e)
+        {
+            if (flatView.CheckInformationInDataGrid())
+            {
+                var resultFlat = flatView.GetSelectedRow();
+
+                var resultOwner = this.repository.GetOwnerById(new Guid(resultFlat[23]));
+
+                IShowInformationAboutFlatView newView = ShowInformationAboutFlatView.GetInstance();
+                IShowInformationAboutFlatRepository newRepository = new ShowInformationAboutFlatRepository(sqlConnectionString);
+                new ShowInformationAboutFlatPresenter(newView, newRepository, sqlConnectionString, resultFlat, resultOwner);
+            }
+        }
+
+        private void ArrangeApartment(object sender, EventArgs e)
         {
             if (flatView.CheckInformationInDataGrid())
             {

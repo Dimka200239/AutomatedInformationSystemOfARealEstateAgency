@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BuyerModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\FlatModel.cs" />
     <Compile Include="Models\OwnerModel.cs" />
@@ -63,6 +64,12 @@
     <Compile Include="Presenters\ShowInformationAboutFlatPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AddNewBuyerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNewBuyerView.Designer.cs">
+      <DependentUpon>AddNewBuyerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddNewFlatView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +88,7 @@
     <Compile Include="Views\FlatView.Designer.cs">
       <DependentUpon>FlatView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Interfaces\IAddNewBuyerView.cs" />
     <Compile Include="Views\Interfaces\IAddNewFlatView.cs" />
     <Compile Include="Views\Interfaces\IAddNewOwnerView.cs" />
     <Compile Include="Views\Interfaces\IFlatView.cs" />
@@ -134,6 +142,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AddNewBuyerView.resx">
+      <DependentUpon>AddNewBuyerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AddNewFlatView.resx">
       <DependentUpon>AddNewFlatView.cs</DependentUpon>
     </EmbeddedResource>

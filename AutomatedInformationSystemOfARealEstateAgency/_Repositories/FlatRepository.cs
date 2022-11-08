@@ -49,12 +49,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                     {
                         command.CommandText = @"SELECT *
                                                 FROM Apartments
-                                                WHERE countOfRoomsOfApartment <= @newValueInt
+                                                WHERE (countOfRoomsOfApartment <= @newValueInt
                                                     OR floorOfApartment <= @newValueInt
                                                     OR numberOfApartment <= @newValueInt
                                                     OR builtYearOfApartment <= @newValueInt
                                                     OR renovationYearOfApartment <= @newValueInt
-                                                    OR numberOfOwnersOfApartment <= @newValueInt";
+                                                    OR numberOfOwnersOfApartment <= @newValueInt)
+                                                    AND statusOfApartment = 'В продаже'";
 
                         command.Parameters.Add("@newValueInt", SqlDbType.Int).Value = newValueInt;
                     }
@@ -62,12 +63,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                     {
                         command.CommandText = @"SELECT *
                                                 FROM Apartments
-                                                WHERE totalAreaOfApartment <= @newValueFloat
+                                                WHERE (totalAreaOfApartment <= @newValueFloat
                                                     OR kitchenAreaOfApartment <= @newValueFloat
                                                     OR distanceFromMetroOfApartment <= @newValueFloat
                                                     OR distanceFromCenterOfApartment <= @newValueFloat
                                                     OR livingSpaceOfApartment <= @newValueFloat
-                                                    OR apartmentPrice <= @newValueFloat";
+                                                    OR apartmentPrice <= @newValueFloat)
+                                                    AND statusOfApartment = 'В продаже'";
 
                         command.Parameters.Add("@newValueFloat", SqlDbType.Float).Value = newValueFloat;
                     }
@@ -75,7 +77,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                     {
                         command.CommandText = @"SELECT *
                                                 FROM Apartments
-                                                WHERE cityOfApartment LIKE @newValueString + '%'
+                                                WHERE (cityOfApartment LIKE @newValueString + '%'
                                                     OR avenueOfApartment LIKE @newValueString + '%'
                                                     OR houseOfApartment LIKE @newValueString + '%'
                                                     OR presenceOfABalconyOfApartment LIKE @newValueString + '%'
@@ -85,7 +87,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                                                     OR windowsExitOfApartment LIKE @newValueString + '%'
                                                     OR repairTypeOfApartment LIKE @newValueString + '%'
                                                     OR descriptionOfApartment LIKE @newValueString + '%'
-                                                    OR statusOfApartment LIKE @newValueString + '%'";
+                                                    OR statusOfApartment LIKE @newValueString + '%')
+                                                    AND statusOfApartment = 'В продаже'";
 
                         command.Parameters.Add("@newValueString", SqlDbType.NVarChar).Value = inputValue;
                     }
