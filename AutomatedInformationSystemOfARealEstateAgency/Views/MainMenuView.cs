@@ -22,7 +22,6 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
         private void AssociateAndRaiseViewEvents()
         {
             this.SearchFlatButton.Click += delegate { ShowAllFlatsEvent?.Invoke(this, EventArgs.Empty); };
-            this.SearchClientButton.Click += delegate { ShowAllClientsEvent?.Invoke(this, EventArgs.Empty); };
             this.AddNewFlatButton.Click += delegate { AddNewFlatEvent?.Invoke(this, EventArgs.Empty); };
             this.OutputShoppingStoreButton.Click += delegate { ShowShoppingStoreEvent?.Invoke(this, EventArgs.Empty); };
             this.ExitButton.Click += delegate { ExitEvent?.Invoke(this, EventArgs.Empty); };

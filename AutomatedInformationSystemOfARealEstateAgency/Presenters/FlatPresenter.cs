@@ -1,4 +1,6 @@
-﻿using AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces;
+﻿using AutomatedInformationSystemOfARealEstateAgency._Repositories;
+using AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces;
+using AutomatedInformationSystemOfARealEstateAgency.Views;
 using AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -62,7 +64,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         {
             if (flatView.CheckInformationInDataGrid())
             {
+                var resultFlat = flatView.GetSelectedRow();
 
+                var resultOwner = this.repository.GetOwnerById(new Guid(resultFlat[23]));
+
+                IShowInformationAboutFlatView newView = ShowInformationAboutFlatView.GetInstance();
+                IShowInformationAboutFlatRepository newRepository = new ShowInformationAboutFlatRepository(sqlConnectionString);
+                new ShowInformationAboutFlatPresenter(newView, newRepository, sqlConnectionString, resultFlat, resultOwner);
             }
         }
     }

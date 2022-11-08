@@ -23,5 +23,6 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces
 
         event EventHandler SearchFlatEvent;
         event EventHandler ShowInfoAboutFlatEvent;
+        event EventHandler ArrangeApartmentEvent;
     }
 }

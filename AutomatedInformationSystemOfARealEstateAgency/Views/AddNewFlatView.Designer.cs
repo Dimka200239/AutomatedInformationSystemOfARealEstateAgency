@@ -203,9 +203,9 @@
             // 
             // renovationYearOfApartmentInputBox
             // 
-            this.renovationYearOfApartmentInputBox.Location = new System.Drawing.Point(590, 4);
+            this.renovationYearOfApartmentInputBox.Location = new System.Drawing.Point(604, 6);
             this.renovationYearOfApartmentInputBox.Name = "renovationYearOfApartmentInputBox";
-            this.renovationYearOfApartmentInputBox.Size = new System.Drawing.Size(213, 22);
+            this.renovationYearOfApartmentInputBox.Size = new System.Drawing.Size(199, 22);
             this.renovationYearOfApartmentInputBox.TabIndex = 18;
             // 
             // renovationYearOfApartment

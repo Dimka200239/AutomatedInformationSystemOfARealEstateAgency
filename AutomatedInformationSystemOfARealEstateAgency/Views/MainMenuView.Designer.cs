@@ -32,7 +32,6 @@
             this.ExitButton = new System.Windows.Forms.Button();
             this.OutputShoppingStoreButton = new System.Windows.Forms.Button();
             this.AddNewFlatButton = new System.Windows.Forms.Button();
-            this.SearchClientButton = new System.Windows.Forms.Button();
             this.SearchFlatButton = new System.Windows.Forms.Button();
             this.AdminPanel.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +41,6 @@
             this.AdminPanel.Controls.Add(this.ExitButton);
             this.AdminPanel.Controls.Add(this.OutputShoppingStoreButton);
             this.AdminPanel.Controls.Add(this.AddNewFlatButton);
-            this.AdminPanel.Controls.Add(this.SearchClientButton);
             this.AdminPanel.Controls.Add(this.SearchFlatButton);
             this.AdminPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.AdminPanel.Location = new System.Drawing.Point(0, 0);
@@ -86,23 +84,11 @@
             this.AddNewFlatButton.Text = "Добавить квартиру на продажу";
             this.AddNewFlatButton.UseVisualStyleBackColor = true;
             // 
-            // SearchClientButton
-            // 
-            this.SearchClientButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchClientButton.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchClientButton.Location = new System.Drawing.Point(0, 304);
-            this.SearchClientButton.Name = "SearchClientButton";
-            this.SearchClientButton.Size = new System.Drawing.Size(247, 44);
-            this.SearchClientButton.TabIndex = 1;
-            this.SearchClientButton.TabStop = false;
-            this.SearchClientButton.Text = "Поиск клиентов";
-            this.SearchClientButton.UseVisualStyleBackColor = true;
-            // 
             // SearchFlatButton
             // 
             this.SearchFlatButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchFlatButton.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchFlatButton.Location = new System.Drawing.Point(0, 254);
+            this.SearchFlatButton.Location = new System.Drawing.Point(0, 304);
             this.SearchFlatButton.Name = "SearchFlatButton";
             this.SearchFlatButton.Size = new System.Drawing.Size(247, 44);
             this.SearchFlatButton.TabIndex = 0;
@@ -129,7 +115,6 @@
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button OutputShoppingStoreButton;
         private System.Windows.Forms.Button AddNewFlatButton;
-        private System.Windows.Forms.Button SearchClientButton;
         private System.Windows.Forms.Button SearchFlatButton;
     }
 }

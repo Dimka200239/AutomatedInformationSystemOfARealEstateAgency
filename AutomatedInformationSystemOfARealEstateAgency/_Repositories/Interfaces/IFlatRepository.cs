@@ -18,5 +18,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces
         /// <param name="inputValue">Вводимый параметр</param>
         /// <returns>Возвращает список квартир, которые удовлетворяют вводемому параметру</returns>
         List<FlatModel> GetAllFlatInformation(string inputValue);
+
+        OwnerModel GetOwnerById(Guid idOwner);
     }
 }

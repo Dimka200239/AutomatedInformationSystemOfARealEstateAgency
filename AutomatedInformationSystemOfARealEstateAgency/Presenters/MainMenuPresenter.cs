@@ -44,7 +44,6 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 
             // Подписка на методы обработчика событий для просмотра событий
             mainMenuView.ShowAllFlatsEvent += ShowAllFlats;
-            mainMenuView.ShowAllClientsEvent += ShowAllClients;
             mainMenuView.AddNewFlatEvent += AddNewFlat;
             mainMenuView.ShowShoppingStoreEvent += ShowShoppingStore;
             mainMenuView.ExitEvent += Exit;
@@ -67,17 +66,6 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
             new FlatPresenter(mainView, newView, repository, sqlConnectionString);
 
             flatView = newView;
-        }
-
-        /// <summary>
-        /// Метод для открытия окна для поиска клиентов по вводимому параметру
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ShowAllClients(object sender, EventArgs e)
-        {
-            if (flatView != null) { flatView.Close(); }
-            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
         }
 
         /// <summary>

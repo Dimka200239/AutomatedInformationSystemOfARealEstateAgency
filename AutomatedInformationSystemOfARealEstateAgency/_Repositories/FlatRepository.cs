@@ -133,5 +133,48 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
 
             return flatList;
         }
+
+        public OwnerModel GetOwnerById(Guid idOwner)
+        {
+            var owner = new OwnerModel();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = @"SELECT *
+                                            FROM Owners
+                                            WHERE idOfOwner = @id";
+
+                    command.Parameters.Add("@id", SqlDbType.UniqueIdentifier).Value = idOwner;
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var newOwner = new OwnerModel();
+
+                            newOwner.IdOfOwner = (Guid)reader[0];
+                            newOwner.NameOfOwner = reader[1].ToString();
+                            newOwner.SerNameOfOwner = reader[2].ToString();
+                            newOwner.PatronymicOfOwner = reader[3].ToString();
+                            newOwner.YearOfBirthOfOwner = (int)reader[4];
+                            newOwner.PhoneOfOwner = reader[5].ToString();
+                            newOwner.PassportSeriesOfOwner = reader[6].ToString();
+                            newOwner.PassportNumberOfOwner = reader[7].ToString();
+                            newOwner.PassportSubdivisionCodeOfOwner = reader[8].ToString();
+
+                            owner = newOwner;
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
+
+            return owner;
+        }
     }
 }

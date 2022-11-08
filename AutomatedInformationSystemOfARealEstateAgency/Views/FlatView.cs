@@ -22,12 +22,12 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
 
         public event EventHandler SearchFlatEvent;
         public event EventHandler ShowInfoAboutFlatEvent;
+        public event EventHandler ArrangeApartmentEvent;
 
         public void AssociateAndRaiseViewEvents()
         {
             this.Load += SetSettingsForDataGridView;
             SearchFlatButton.Click += delegate { SearchFlatEvent?.Invoke(this, EventArgs.Empty); };
-            ShowInfoAboutFlatButton.Click += delegate { ShowInfoAboutFlatEvent?.Invoke(this, EventArgs.Empty); };
             InputFieldForSearchFlat.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
@@ -35,6 +35,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
                     SearchFlatEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+            ShowInfoAboutFlatButton.Click += delegate { ShowInfoAboutFlatEvent?.Invoke(this, EventArgs.Empty); };
+            ArrangeApartmentButton.Click += delegate { ArrangeApartmentEvent?.Invoke(this, EventArgs.Empty); };
         }
 
         public bool CheckInformationInDataGrid()

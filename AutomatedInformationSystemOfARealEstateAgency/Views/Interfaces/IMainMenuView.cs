@@ -15,7 +15,6 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces
 
         // События
         event EventHandler ShowAllFlatsEvent;
-        event EventHandler ShowAllClientsEvent;
         event EventHandler AddNewFlatEvent;
         event EventHandler ShowShoppingStoreEvent;
         event EventHandler ExitEvent;

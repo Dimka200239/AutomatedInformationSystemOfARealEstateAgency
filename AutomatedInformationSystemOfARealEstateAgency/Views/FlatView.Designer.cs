@@ -33,6 +33,7 @@
             this.SearchFlatButton = new System.Windows.Forms.Button();
             this.InputFieldForSearchFlat = new System.Windows.Forms.TextBox();
             this.SearchEmployee = new System.Windows.Forms.Label();
+            this.ArrangeApartmentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataSourseFlat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,11 +86,23 @@
             this.SearchEmployee.TabIndex = 7;
             this.SearchEmployee.Text = "Поиск:";
             // 
+            // ArrangeApartmentButton
+            // 
+            this.ArrangeApartmentButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ArrangeApartmentButton.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ArrangeApartmentButton.Location = new System.Drawing.Point(16, 440);
+            this.ArrangeApartmentButton.Name = "ArrangeApartmentButton";
+            this.ArrangeApartmentButton.Size = new System.Drawing.Size(217, 45);
+            this.ArrangeApartmentButton.TabIndex = 12;
+            this.ArrangeApartmentButton.Text = "Оформить квартиру";
+            this.ArrangeApartmentButton.UseVisualStyleBackColor = true;
+            // 
             // FlatView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 497);
+            this.Controls.Add(this.ArrangeApartmentButton);
             this.Controls.Add(this.ShowInfoAboutFlatButton);
             this.Controls.Add(this.DataSourseFlat);
             this.Controls.Add(this.SearchFlatButton);
@@ -110,5 +123,6 @@
         private System.Windows.Forms.Button SearchFlatButton;
         private System.Windows.Forms.TextBox InputFieldForSearchFlat;
         private System.Windows.Forms.Label SearchEmployee;
+        private System.Windows.Forms.Button ArrangeApartmentButton;
     }
 }
