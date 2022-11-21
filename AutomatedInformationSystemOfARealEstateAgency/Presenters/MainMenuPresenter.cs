@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 {
@@ -63,8 +64,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="e"></param>
         private void ShowAllFlats(object sender, EventArgs e)
         {
-            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
-            if (contractsView != null) { contractsView.Close(); }
+            CloseUnnecessaryWindows("noExit");
 
             IFlatView newView = FlatView.GetInstance((MainView)mainView);
             IFlatRepository repository = new FlatRepository(sqlConnectionString);
@@ -80,8 +80,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="e"></param>
         private void AddNewFlat(object sender, EventArgs e)
         {
-            if (flatView != null) { flatView.Close(); }
-            if (contractsView != null) { contractsView.Close(); }
+            CloseUnnecessaryWindows("noExit");
 
             IAddNewOwnerView newView = AddNewOwnerView.GetInstance((MainView)mainView);
             IAddNewOwnerRepository repository = new AddNewOwnerRepository(sqlConnectionString);
@@ -97,8 +96,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="e"></param>
         private void ShowShoppingStore(object sender, EventArgs e)
         {
-            if (flatView != null) { flatView.Close(); }
-            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
+            CloseUnnecessaryWindows("noExit");
 
             IShowAllContractsView newView = ShowAllContractsView.GetInstance((MainView)mainView);
             IShowAllContractsRepository repository = new ShowAllContractsRepository(sqlConnectionString);
@@ -114,15 +112,37 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="e"></param>
         private void Exit(object sender, EventArgs e)
         {
-            if (flatView != null) { flatView.Close(); }
-            if (addNewOwnerView != null) { addNewOwnerView.Close(); }
-            if (contractsView != null) { contractsView.Close(); }
+            CloseUnnecessaryWindows("Exit");
 
             mainMenuView.Close();
 
             IEmployeeView view = EmployeeView.GetInstance((MainView)mainView);
             IEmployeeRepository repository = new EmployeeRepository(sqlConnectionString);
             new EmployeePresenter(mainView, view, repository, sqlConnectionString);
+        }
+
+        private void CloseUnnecessaryWindows(string typeOfClosing)
+        {
+            if (typeOfClosing != "Exit")
+            {
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                {
+                    if (Application.OpenForms[i].Name != "MainView" && Application.OpenForms[i].Name != "MainMenuView")
+                    {
+                        Application.OpenForms[i].Close();
+                    }
+                }
+            }
+            else
+            {
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                {
+                    if (Application.OpenForms[i].Name != "MainView")
+                    {
+                        Application.OpenForms[i].Close();
+                    }
+                }
+            }
         }
     }
 }
