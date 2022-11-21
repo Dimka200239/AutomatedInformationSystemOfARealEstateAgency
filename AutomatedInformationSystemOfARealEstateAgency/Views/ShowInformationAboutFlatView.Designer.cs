@@ -631,6 +631,7 @@
             this.Controls.Add(this.countOfRoomsOfApartment);
             this.Controls.Add(this.houseOfApartmentInputBox);
             this.Controls.Add(this.houseOfApartment);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximumSize = new System.Drawing.Size(1042, 796);
             this.MinimumSize = new System.Drawing.Size(1042, 796);
             this.Name = "ShowInformationAboutFlatView";

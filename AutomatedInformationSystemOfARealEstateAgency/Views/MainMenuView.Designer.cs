@@ -102,6 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.AdminPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MainMenuView";
             this.Text = "MainMenuView";
             this.AdminPanel.ResumeLayout(false);

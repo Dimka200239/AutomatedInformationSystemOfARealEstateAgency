@@ -33,7 +33,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's name")]
-        [Required(ErrorMessage = "Buyer's name is required")]
+        [Required(ErrorMessage = "Требуется имя покупателя")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Имя покупателя должно содержать от 3 до 50 символов")]
         public string NameOfBuyer
         {
             get { return nameOfBuyer; }
@@ -41,7 +42,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's serName")]
-        [Required(ErrorMessage = "Buyer's serName is required")]
+        [Required(ErrorMessage = "Требуется фамилия покупателя")]
+        [StringLength(50, MinimumLength = 4, ErrorMessage = "Фамилия покупателя должно содержать от 4 до 50 символов")]
         public string SerNameOfBuyer
         {
             get { return serNameOfBuyer; }
@@ -49,7 +51,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's patronymic")]
-        [Required(ErrorMessage = "Buyer's patronymic is required")]
+        [Required(ErrorMessage = "Требуется отчество покупателя")]
+        [StringLength(50, MinimumLength = 4, ErrorMessage = "Отчество покупателя должно содержать от 4 до 50 символов")]
         public string PatronymicOfBuyer
         {
             get { return patronymicOfBuyer; }
@@ -57,7 +60,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's yearOfBirth")]
-        [Required(ErrorMessage = "Buyer's yearOfBirth is required")]
+        [Required(ErrorMessage = "Требуется год рождения покупателя")]
+        [Range(1922, 2004, ErrorMessage = "Год рождения покупателя должен быть больше 1922 и меньше 2004")]
         public int YearOfBirthOfBuyer
         {
             get { return yearOfBirthOfBuyer; }
@@ -65,7 +69,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's PhoneOfOwner")]
-        [Required(ErrorMessage = "Buyer's PhoneOfOwner is required")]
+        [Required(ErrorMessage = "Требуется номер телефона покупателя")]
+        [RegularExpression(@"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$", ErrorMessage = "Номер телефона должен состоять из 11 цифр и начинаться с кода страны без \"+\"")]
         public string PhoneOfBuyer
         {
             get { return phoneOfBuyer; }
@@ -73,7 +78,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's passportSeriesOfOwner")]
-        [Required(ErrorMessage = "Buyer's passportSeriesOfOwner is required")]
+        [Required(ErrorMessage = "Требуется серия паспорта покупателя")]
+        [RegularExpression(@"^[0-9]{4}$", ErrorMessage = "Серия паспорта должна состоять из 4 цифр")]
         public string PassportSeriesOfBuyer
         {
             get { return passportSeriesOfBuyer; }
@@ -81,7 +87,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's passportNumberOfOwner")]
-        [Required(ErrorMessage = "Buyer's passportNumberOfOwner is required")]
+        [Required(ErrorMessage = "Требуется номер паспорта покупателя")]
+        [RegularExpression(@"^[0-9]{6}$", ErrorMessage = "Номер паспорта должна состоять из 6 цифр")]
         public string PassportNumberOfBuyer
         {
             get { return passportNumberOfBuyer; }
@@ -89,7 +96,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Buyer's passportSubdivisionCodeOfOwner")]
-        [Required(ErrorMessage = "Buyer's passportSubdivisionCodeOfOwner is required")]
+        [Required(ErrorMessage = "Требуется код подразделения паспорта покупателя")]
+        [RegularExpression(@"^[0-9]{3}[-]{1}[0-9]{3}$", ErrorMessage = "Код подразделения паспорта должна иметь вид: ___-___")]
         public string PassportSubdivisionCodeOfBuyer
         {
             get { return passportSubdivisionCodeOfBuyer; }

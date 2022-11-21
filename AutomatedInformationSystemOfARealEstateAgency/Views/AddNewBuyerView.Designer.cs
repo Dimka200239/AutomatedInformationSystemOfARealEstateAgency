@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddNewOwnerButton = new System.Windows.Forms.Button();
+            this.AddNewBuyerButton = new System.Windows.Forms.Button();
             this.OwnerPhoneExample = new System.Windows.Forms.Label();
             this.BuyerSubdivisionCodePassportInputBox = new System.Windows.Forms.TextBox();
             this.OwnerSubdivisionCodePassport = new System.Windows.Forms.Label();
@@ -48,16 +48,16 @@
             this.OwnerName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // AddNewOwnerButton
+            // AddNewBuyerButton
             // 
-            this.AddNewOwnerButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddNewOwnerButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddNewOwnerButton.Location = new System.Drawing.Point(29, 375);
-            this.AddNewOwnerButton.Name = "AddNewOwnerButton";
-            this.AddNewOwnerButton.Size = new System.Drawing.Size(502, 47);
-            this.AddNewOwnerButton.TabIndex = 35;
-            this.AddNewOwnerButton.Text = "Оформить квартиру";
-            this.AddNewOwnerButton.UseVisualStyleBackColor = true;
+            this.AddNewBuyerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddNewBuyerButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddNewBuyerButton.Location = new System.Drawing.Point(29, 375);
+            this.AddNewBuyerButton.Name = "AddNewBuyerButton";
+            this.AddNewBuyerButton.Size = new System.Drawing.Size(502, 47);
+            this.AddNewBuyerButton.TabIndex = 35;
+            this.AddNewBuyerButton.Text = "Оформить квартиру";
+            this.AddNewBuyerButton.UseVisualStyleBackColor = true;
             // 
             // OwnerPhoneExample
             // 
@@ -209,8 +209,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.AddNewOwnerButton);
+            this.ClientSize = new System.Drawing.Size(837, 450);
+            this.Controls.Add(this.AddNewBuyerButton);
             this.Controls.Add(this.OwnerPhoneExample);
             this.Controls.Add(this.BuyerSubdivisionCodePassportInputBox);
             this.Controls.Add(this.OwnerSubdivisionCodePassport);
@@ -228,6 +228,9 @@
             this.Controls.Add(this.OwnerSerName);
             this.Controls.Add(this.BuyerNameInputBox);
             this.Controls.Add(this.OwnerName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MaximumSize = new System.Drawing.Size(855, 497);
+            this.MinimumSize = new System.Drawing.Size(855, 497);
             this.Name = "AddNewBuyerView";
             this.Text = "AddNewBuyerView";
             this.ResumeLayout(false);
@@ -237,7 +240,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button AddNewOwnerButton;
+        private System.Windows.Forms.Button AddNewBuyerButton;
         private System.Windows.Forms.Label OwnerPhoneExample;
         private System.Windows.Forms.TextBox BuyerSubdivisionCodePassportInputBox;
         private System.Windows.Forms.Label OwnerSubdivisionCodePassport;

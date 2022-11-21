@@ -37,6 +37,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
 
             var newValueInt = -1;
             float newValueFloat = -1;
+            var notSale = "В продаже";
 
             using (var connection = new SqlConnection(connectionString))
             {
@@ -55,9 +56,10 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                                                     OR builtYearOfApartment <= @newValueInt
                                                     OR renovationYearOfApartment <= @newValueInt
                                                     OR numberOfOwnersOfApartment <= @newValueInt)
-                                                    AND statusOfApartment = 'В продаже'";
+                                                    AND statusOfApartment = @sale";
 
                         command.Parameters.Add("@newValueInt", SqlDbType.Int).Value = newValueInt;
+                        command.Parameters.Add("@sale", SqlDbType.NVarChar).Value = notSale;
                     }
                     else if (float.TryParse(inputValue, out newValueFloat))
                     {
@@ -69,9 +71,10 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                                                     OR distanceFromCenterOfApartment <= @newValueFloat
                                                     OR livingSpaceOfApartment <= @newValueFloat
                                                     OR apartmentPrice <= @newValueFloat)
-                                                    AND statusOfApartment = 'В продаже'";
+                                                    AND statusOfApartment = @sale";
 
                         command.Parameters.Add("@newValueFloat", SqlDbType.Float).Value = newValueFloat;
+                        command.Parameters.Add("@sale", SqlDbType.NVarChar).Value = notSale;
                     }
                     else
                     {
@@ -88,11 +91,12 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                                                     OR repairTypeOfApartment LIKE @newValueString + '%'
                                                     OR descriptionOfApartment LIKE @newValueString + '%'
                                                     OR statusOfApartment LIKE @newValueString + '%')
-                                                    AND statusOfApartment = 'В продаже'";
+                                                    AND statusOfApartment = @sale";
 
                         command.Parameters.Add("@newValueString", SqlDbType.NVarChar).Value = inputValue;
+                        command.Parameters.Add("@sale", SqlDbType.NVarChar).Value = notSale;
                     }
-                    
+
 
                     using (var reader = command.ExecuteReader())
                     {

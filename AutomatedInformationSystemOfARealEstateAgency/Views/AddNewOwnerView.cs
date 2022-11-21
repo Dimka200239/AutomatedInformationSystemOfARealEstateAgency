@@ -42,9 +42,9 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             set { }
         }
 
-        public int GetOwnerYearOfBirth
+        public string GetOwnerYearOfBirth
         {
-            get { return Convert.ToInt32(OwnerYearOfBirthInputBox.Text); }
+            get { return OwnerYearOfBirthInputBox.Text; }
             set { }
         }
 

@@ -17,7 +17,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces
         string GetOwnerName { get; set; }
         string GetOwnerSerName { get; set; }
         string GetOwnerpatronymic { get; set; }
-        int GetOwnerYearOfBirth { get; set; }
+        string GetOwnerYearOfBirth { get; set; }
         string GetOwnerPhone { get; set; }
         string GetOwnerSeriesPassport { get; set; }
         string GetOwnerNumberPassport { get; set; }

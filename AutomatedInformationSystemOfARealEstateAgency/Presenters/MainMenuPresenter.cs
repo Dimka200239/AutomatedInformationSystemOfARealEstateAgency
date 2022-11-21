@@ -1,5 +1,6 @@
 ﻿using AutomatedInformationSystemOfARealEstateAgency._Repositories;
 using AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces;
+using AutomatedInformationSystemOfARealEstateAgency.Models;
 using AutomatedInformationSystemOfARealEstateAgency.Views;
 using AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces;
 using System;
@@ -22,11 +23,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private IMainMenuView mainMenuView;
         private IMainMenuRepository repository;
         private readonly string sqlConnectionString;
+        private readonly EmployeeModel employeeModel;
 
         // Поля для закрыытия формы
 
         IFlatView flatView = null;
         IAddNewOwnerView addNewOwnerView = null;
+        IShowAllContractsView contractsView = null;
 
         /// <summary>
         /// Конструктор класса
@@ -35,12 +38,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="view">Интерфейс представления "Главное меню программы"</param>
         /// <param name="repository">Интерфейс репозитория "Главное меню программы"</param>
         /// <param name="sqlConnectionString">Строка подключения к БД</param>
-        public MainMenuPresenter(IMainView mainView, IMainMenuView view, IMainMenuRepository repository, string sqlConnectionString)
+        public MainMenuPresenter(IMainView mainView, IMainMenuView view, IMainMenuRepository repository, string sqlConnectionString, EmployeeModel employeeModel)
         {
             this.mainView = mainView;
             this.mainMenuView = view;
             this.repository = repository;
             this.sqlConnectionString = sqlConnectionString;
+            this.employeeModel = employeeModel;
 
             // Подписка на методы обработчика событий для просмотра событий
             mainMenuView.ShowAllFlatsEvent += ShowAllFlats;
@@ -60,10 +64,11 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private void ShowAllFlats(object sender, EventArgs e)
         {
             if (addNewOwnerView != null) { addNewOwnerView.Close(); }
+            if (contractsView != null) { contractsView.Close(); }
 
             IFlatView newView = FlatView.GetInstance((MainView)mainView);
             IFlatRepository repository = new FlatRepository(sqlConnectionString);
-            new FlatPresenter(mainView, newView, repository, sqlConnectionString);
+            new FlatPresenter(mainView, newView, repository, sqlConnectionString, employeeModel);
 
             flatView = newView;
         }
@@ -76,6 +81,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private void AddNewFlat(object sender, EventArgs e)
         {
             if (flatView != null) { flatView.Close(); }
+            if (contractsView != null) { contractsView.Close(); }
 
             IAddNewOwnerView newView = AddNewOwnerView.GetInstance((MainView)mainView);
             IAddNewOwnerRepository repository = new AddNewOwnerRepository(sqlConnectionString);
@@ -93,6 +99,12 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         {
             if (flatView != null) { flatView.Close(); }
             if (addNewOwnerView != null) { addNewOwnerView.Close(); }
+
+            IShowAllContractsView newView = ShowAllContractsView.GetInstance((MainView)mainView);
+            IShowAllContractsRepository repository = new ShowAllContractsRepository(sqlConnectionString);
+            new ShowAllContractsPresenter(mainView, newView, repository, sqlConnectionString);
+
+            contractsView = newView;
         }
 
         /// <summary>

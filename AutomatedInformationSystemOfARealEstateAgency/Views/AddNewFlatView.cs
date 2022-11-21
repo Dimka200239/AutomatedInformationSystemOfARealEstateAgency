@@ -42,21 +42,21 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             set { }
         }
 
-        public int GetCountOfRoomsOfApartment
+        public string GetCountOfRoomsOfApartment
         {
-            get { return Convert.ToInt32(countOfRoomsOfApartmentInputBox.Text); }
+            get { return countOfRoomsOfApartmentInputBox.Text; }
             set { }
         }
 
-        public float GetTotalAreaOfApartment
+        public string GetTotalAreaOfApartment
         {
-            get { return float.Parse(totalAreaOfApartmentInputBox.Text); }
+            get { return totalAreaOfApartmentInputBox.Text; }
             set { }
         }
 
-        public float GetKitchenAreaOfApartment
+        public string GetKitchenAreaOfApartment
         {
-            get { return float.Parse(kitchenAreaOfApartmentInputBox.Text); }
+            get { return kitchenAreaOfApartmentInputBox.Text; }
             set { }
         }
 
@@ -72,27 +72,27 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             set { }
         }
 
-        public int GetFloorOfApartment
+        public string GetFloorOfApartment
         {
-            get { return Convert.ToInt32(floorOfApartmentInputBox.Text); }
+            get { return floorOfApartmentInputBox.Text; }
             set { }
         }
 
-        public int GetNumberOfApartment
+        public string GetNumberOfApartment
         {
-            get { return Convert.ToInt32(numberOfApartmentInputBox.Text); }
+            get { return numberOfApartmentInputBox.Text; }
             set { }
         }
 
-        public int GetBuiltYearOfApartment
+        public string GetBuiltYearOfApartment
         {
-            get { return Convert.ToInt32(builtYearOfApartmentInputBox.Text); }
+            get { return builtYearOfApartmentInputBox.Text; }
             set { }
         }
 
-        public int GetRenovationYearOfApartment
+        public string GetRenovationYearOfApartment
         {
-            get { return Convert.ToInt32(renovationYearOfApartmentInputBox.Text); }
+            get { return renovationYearOfApartmentInputBox.Text; }
             set { }
         }
 
@@ -102,21 +102,21 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             set { }
         }
 
-        public float GetDistanceFromMetroOfApartment
+        public string GetDistanceFromMetroOfApartment
         {
-            get { return float.Parse(distanceFromMetroOfApartmentInputBox.Text); }
+            get { return distanceFromMetroOfApartmentInputBox.Text; }
             set { }
         }
 
-        public float GetDistanceFromCenterOfApartment
+        public string GetDistanceFromCenterOfApartment
         {
-            get { return float.Parse(distanceFromCenterOfApartmentInputBox.Text); }
+            get { return distanceFromCenterOfApartmentInputBox.Text; }
             set { }
         }
 
-        public float GetLivingSpaceOfApartment
+        public string GetLivingSpaceOfApartment
         {
-            get { return float.Parse(livingSpaceOfApartmentInputBox.Text); }
+            get { return livingSpaceOfApartmentInputBox.Text; }
             set { }
         }
 
@@ -138,9 +138,9 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             set { }
         }
 
-        public int GetNumberOfOwnersOfApartment
+        public string GetNumberOfOwnersOfApartment
         {
-            get { return Convert.ToInt32(numberOfOwnersOfApartmentInputBox.Text); }
+            get { return numberOfOwnersOfApartmentInputBox.Text; }
             set { }
         }
 
@@ -150,9 +150,9 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             set { }
         }
 
-        public float GetApartmentPrice
+        public string GetApartmentPrice
         {
-            get { return float.Parse(apartmentPriceInputBox.Text); }
+            get { return apartmentPriceInputBox.Text; }
             set { }
         }
 

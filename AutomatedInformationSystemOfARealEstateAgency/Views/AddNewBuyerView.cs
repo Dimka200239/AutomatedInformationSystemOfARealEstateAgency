@@ -16,6 +16,12 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
         public AddNewBuyerView()
         {
             InitializeComponent();
+            AssociateAndRaiseViewEvents();
+        }
+
+        public void AssociateAndRaiseViewEvents()
+        {
+            this.AddNewBuyerButton.Click += delegate { AddNewBuyerEvent?.Invoke(this, EventArgs.Empty); };
         }
 
         public string GetBuyerName
@@ -36,9 +42,9 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             set {}
         }
 
-        public int GetBuyerYearOfBirth
+        public string GetBuyerYearOfBirth
         {
-            get { return int.Parse(BuyerYearOfBirthInputBox.Text); }
+            get { return BuyerYearOfBirthInputBox.Text; }
             set {}
         }
 
@@ -71,6 +77,28 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
         public void ShowInformation(string message)
         {
             MessageBox.Show(message);
+        }
+
+        // Единождое открытие
+        private static AddNewBuyerView instance;
+
+        public static AddNewBuyerView GetInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new AddNewBuyerView();
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+
+                instance.BringToFront();
+            }
+
+            return instance;
         }
     }
 }

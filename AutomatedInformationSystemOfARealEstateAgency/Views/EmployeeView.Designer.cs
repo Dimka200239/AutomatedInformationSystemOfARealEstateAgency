@@ -81,7 +81,7 @@
             this.Login.TabIndex = 5;
             this.Login.Text = "Логин";
             // 
-            // UserView
+            // EmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,7 +91,8 @@
             this.Controls.Add(this.LoginInputField);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Login);
-            this.Name = "UserView";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Name = "EmployeeView";
             this.Text = "UserView";
             this.ResumeLayout(false);
             this.PerformLayout();

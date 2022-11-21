@@ -1,5 +1,6 @@
 ﻿using AutomatedInformationSystemOfARealEstateAgency._Repositories;
 using AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces;
+using AutomatedInformationSystemOfARealEstateAgency.Models;
 using AutomatedInformationSystemOfARealEstateAgency.Views;
 using AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces;
 using System;
@@ -20,6 +21,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         private IFlatView flatView;
         private IFlatRepository repository;
         private readonly string sqlConnectionString;
+        private readonly EmployeeModel employeeModel;
 
         /// <summary>
         /// Конструктор класса
@@ -28,12 +30,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         /// <param name="view">Интерфейс представления поиска квартиры</param>
         /// <param name="repository">Интерфейс репозитория поиска квартиры</param>
         /// <param name="sqlConnectionString">Строка подключения к БД</param>
-        public FlatPresenter(IMainView mainView, IFlatView view, IFlatRepository repository, string sqlConnectionString)
+        public FlatPresenter(IMainView mainView, IFlatView view, IFlatRepository repository, string sqlConnectionString, EmployeeModel employeeModel)
         {
             this.mainView = mainView;
             this.flatView = view;
             this.repository = repository;
             this.sqlConnectionString = sqlConnectionString;
+            this.employeeModel = employeeModel;
 
             // Подписка на методы обработчика событий для просмотра событий
             this.flatView.SearchFlatEvent += SearchFlat;
@@ -83,9 +86,19 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 
                 var resultOwner = this.repository.GetOwnerById(new Guid(resultFlat[23]));
 
-                IShowInformationAboutFlatView newView = ShowInformationAboutFlatView.GetInstance();
-                IShowInformationAboutFlatRepository newRepository = new ShowInformationAboutFlatRepository(sqlConnectionString);
-                new ShowInformationAboutFlatPresenter(newView, newRepository, sqlConnectionString, resultFlat, resultOwner);
+                var date = DateTime.Now;
+
+                IAddNewBuyerView newView = AddNewBuyerView.GetInstance();
+                IAddNewBuyerRepository newRepository = new AddNewBuyerRepository(sqlConnectionString);
+                var newPresenter = new AddNewBuyerPresenter(newView,
+                                                            newRepository,
+                                                            sqlConnectionString,
+                                                            resultOwner.IdOfOwner,
+                                                            new Guid(resultFlat[0]),
+                                                            employeeModel.IdOfEmployee,
+                                                            date.ToString(),
+                                                            float.Parse(resultFlat[22]),
+                                                            float.Parse(resultFlat[22]) * (10 / 100));
             }
         }
     }

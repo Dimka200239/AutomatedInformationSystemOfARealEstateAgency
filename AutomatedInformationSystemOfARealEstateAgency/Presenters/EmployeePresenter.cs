@@ -63,7 +63,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 
                 IMainMenuView view = MainMenuView.GetInstance((MainView)mainView);
                 IMainMenuRepository repository = new MainMenuRepository(sqlConnectionString);
-                new MainMenuPresenter(mainView, view, repository, sqlConnectionString);
+                new MainMenuPresenter(mainView, view, repository, sqlConnectionString, result);
             }
         }
     }

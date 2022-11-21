@@ -35,6 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.IsMdiContainer = true;
             this.MaximumSize = new System.Drawing.Size(1200, 600);
             this.MinimumSize = new System.Drawing.Size(1200, 600);

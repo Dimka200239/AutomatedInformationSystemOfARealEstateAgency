@@ -56,12 +56,15 @@
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\FlatModel.cs" />
     <Compile Include="Models\OwnerModel.cs" />
+    <Compile Include="Presenters\AddNewBuyerPresenter.cs" />
     <Compile Include="Presenters\AddNewFlatPresenter.cs" />
     <Compile Include="Presenters\AddNewOwnerPresenter.cs" />
+    <Compile Include="Presenters\Common\ModelDataValidation.cs" />
     <Compile Include="Presenters\FlatPresenter.cs" />
     <Compile Include="Presenters\MainMenuPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\EmployeePresenter.cs" />
+    <Compile Include="Presenters\ShowAllContractsPresenter.cs" />
     <Compile Include="Presenters\ShowInformationAboutFlatPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Views\Interfaces\IMainMenuView.cs" />
     <Compile Include="Views\Interfaces\IMainView.cs" />
     <Compile Include="Views\Interfaces\IEmployeeView.cs" />
+    <Compile Include="Views\Interfaces\IShowAllContractsView.cs" />
     <Compile Include="Views\Interfaces\IShowInformationAboutFlatView.cs" />
     <Compile Include="Views\MainMenuView.cs">
       <SubType>Form</SubType>
@@ -115,24 +119,34 @@
     <Compile Include="Views\EmployeeView.Designer.cs">
       <DependentUpon>EmployeeView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShowAllContractsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ShowAllContractsView.Designer.cs">
+      <DependentUpon>ShowAllContractsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShowInformationAboutFlatView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ShowInformationAboutFlatView.Designer.cs">
       <DependentUpon>ShowInformationAboutFlatView.cs</DependentUpon>
     </Compile>
+    <Compile Include="_Repositories\AddNewBuyerRepository.cs" />
     <Compile Include="_Repositories\AddNewFlatRepository.cs" />
     <Compile Include="_Repositories\AddNewOwnerRepository.cs" />
     <Compile Include="_Repositories\BaseRepository.cs" />
     <Compile Include="_Repositories\FlatRepository.cs" />
+    <Compile Include="_Repositories\Interfaces\IAddNewBuyerRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IAddNewFlatRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IAddNewOwnerRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IFlatRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IMainMenuRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="_Repositories\Interfaces\IShowAllContractsRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IShowInformationAboutFlatRepository.cs" />
     <Compile Include="_Repositories\MainMenuRepository.cs" />
     <Compile Include="_Repositories\EmployeeRepository.cs" />
+    <Compile Include="_Repositories\ShowAllContractsRepository.cs" />
     <Compile Include="_Repositories\ShowInformationAboutFlatRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmployeeView.resx">
       <DependentUpon>EmployeeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ShowAllContractsView.resx">
+      <DependentUpon>ShowAllContractsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ShowInformationAboutFlatView.resx">
       <DependentUpon>ShowInformationAboutFlatView.cs</DependentUpon>

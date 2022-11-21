@@ -12,16 +12,24 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
     {
         // Поля класса
 
+        private Guid contractId;
         private Guid ownerid;
         private Guid buyerId;
         private Guid apartmentId;
         private Guid employeeId;
-        private DateTime date;
+        private string date;
         private float price;
         private float cashFlow;
 
 
         // Свойства - Валидатор
+
+        [DisplayName("Contract's ID")]
+        public Guid ContractId
+        {
+            get { return contractId; }
+            set { contractId = value; }
+        }
 
         [DisplayName("Owner's ID")]
         public Guid Ownerid
@@ -52,7 +60,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
         }
 
         [DisplayName("Date")]
-        public DateTime Date
+        public string Date
         {
             get { return date; }
             set { date = value; }

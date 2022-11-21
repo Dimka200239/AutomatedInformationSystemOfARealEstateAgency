@@ -1,10 +1,12 @@
 ﻿using AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces;
 using AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces;
+using AutomatedInformationSystemOfARealEstateAgency.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomatedInformationSystemOfARealEstateAgency.Views;
 
 namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 {
@@ -35,49 +37,82 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 
         private void AddNewFlat(object sender, EventArgs e)
         {
-            if (this.repository.CheckInformationAboutFlat(addNewFlatView.GetCityOfApartment,
+            try
+            {
+                var model = new FlatModel();
+                model.CityOfApartment = addNewFlatView.GetCityOfApartment;
+                model.AvenueOfApartment = addNewFlatView.GetAvenueOfApartment;
+                model.HouseOfApartment = addNewFlatView.GetHouseOfApartment;
+                model.CountOfRoomsOfApartment = int.Parse(addNewFlatView.GetCountOfRoomsOfApartment);
+                model.TotalAreaOfApartment = float.Parse(addNewFlatView.GetTotalAreaOfApartment);
+                model.KitchenAreaOfApartment = float.Parse(addNewFlatView.GetKitchenAreaOfApartment);
+                model.PresenceOfABalconyOfApartment = addNewFlatView.GetPresenceOfABalconyOfApartment;
+                model.BathroomOfApartment = addNewFlatView.GetBathroomOfApartment;
+                model.FloorOfApartment = int.Parse(addNewFlatView.GetFloorOfApartment);
+                model.NumberOfApartment = int.Parse(addNewFlatView.GetNumberOfApartment);
+                model.BuiltYearOfApartment = int.Parse(addNewFlatView.GetBuiltYearOfApartment);
+                model.RenovationYearOfApartment = int.Parse(addNewFlatView.GetRenovationYearOfApartment);
+                model.AvailabilityOfParkingOfApartment = addNewFlatView.GetAvailabilityOfParkingOfApartment;
+                model.DistanceFromMetroOfApartment = float.Parse(addNewFlatView.GetDistanceFromMetroOfApartment);
+                model.DistanceFromCenterOfApartment = float.Parse(addNewFlatView.GetDistanceFromCenterOfApartment);
+                model.LivingSpaceOfApartment = float.Parse(addNewFlatView.GetLivingSpaceOfApartment);
+                model.RoomTypeOfApartment = addNewFlatView.GetRoomTypeOfApartment;
+                model.WindowsExitOfApartment = addNewFlatView.GetWindowsExitOfApartment;
+                model.RepairTypeOfApartment = addNewFlatView.GetRepairTypeOfApartment;
+                model.NumberOfOwnersOfApartment = int.Parse(addNewFlatView.GetNumberOfOwnersOfApartment);
+                model.DescriptionOfApartment = addNewFlatView.GetDescriptionOfApartment;
+                model.ApartmentPrice = float.Parse(addNewFlatView.GetApartmentPrice);
+
+                new Common.ModelDataValidation().Validate(model);
+
+                if (this.repository.CheckInformationAboutFlat(addNewFlatView.GetCityOfApartment,
                                                           addNewFlatView.GetAvenueOfApartment,
                                                           addNewFlatView.GetHouseOfApartment,
-                                                          addNewFlatView.GetFloorOfApartment,
-                                                          addNewFlatView.GetNumberOfApartment,
+                                                          int.Parse(addNewFlatView.GetFloorOfApartment),
+                                                          int.Parse(addNewFlatView.GetNumberOfApartment),
                                                           "В продаже") == false)
-            {
-                addNewFlatView.ShowInformation("Данная квартира уже продаётся.");
+                {
+                    addNewFlatView.ShowInformation("Данная квартира уже продаётся.");
+                }
+                else
+                {
+                    var newIdFlat = Guid.NewGuid();
+
+                    this.repository.AddNewFlatInDataBase(newIdFlat,
+                                                         addNewFlatView.GetCityOfApartment,
+                                                         addNewFlatView.GetAvenueOfApartment,
+                                                         addNewFlatView.GetHouseOfApartment,
+                                                         int.Parse(addNewFlatView.GetCountOfRoomsOfApartment),
+                                                         float.Parse(addNewFlatView.GetTotalAreaOfApartment),
+                                                         int.Parse(addNewFlatView.GetKitchenAreaOfApartment),
+                                                         addNewFlatView.GetPresenceOfABalconyOfApartment,
+                                                         addNewFlatView.GetBathroomOfApartment,
+                                                         int.Parse(addNewFlatView.GetFloorOfApartment),
+                                                         int.Parse(addNewFlatView.GetNumberOfApartment),
+                                                         int.Parse(addNewFlatView.GetBuiltYearOfApartment),
+                                                         int.Parse(addNewFlatView.GetRenovationYearOfApartment),
+                                                         addNewFlatView.GetAvailabilityOfParkingOfApartment,
+                                                         float.Parse(addNewFlatView.GetDistanceFromMetroOfApartment),
+                                                         float.Parse(addNewFlatView.GetDistanceFromCenterOfApartment),
+                                                         float.Parse(addNewFlatView.GetLivingSpaceOfApartment),
+                                                         addNewFlatView.GetRoomTypeOfApartment,
+                                                         addNewFlatView.GetWindowsExitOfApartment,
+                                                         addNewFlatView.GetRepairTypeOfApartment,
+                                                         int.Parse(addNewFlatView.GetNumberOfOwnersOfApartment),
+                                                         addNewFlatView.GetDescriptionOfApartment,
+                                                         float.Parse(addNewFlatView.GetApartmentPrice),
+                                                         this.guidOwner,
+                                                         "В продаже");
+
+                    addNewFlatView.ShowInformation("Квартира успешно добавлена в базу данных и выставлена на продажу!");
+                }
+
+                this.addNewFlatView.Close();
             }
-            else
+            catch (Exception ex)
             {
-                var newIdFlat = Guid.NewGuid();
-
-                this.repository.AddNewFlatInDataBase(newIdFlat,
-                                                     addNewFlatView.GetCityOfApartment,
-                                                     addNewFlatView.GetAvenueOfApartment,
-                                                     addNewFlatView.GetHouseOfApartment,
-                                                     addNewFlatView.GetCountOfRoomsOfApartment,
-                                                     addNewFlatView.GetTotalAreaOfApartment,
-                                                     addNewFlatView.GetKitchenAreaOfApartment,
-                                                     addNewFlatView.GetPresenceOfABalconyOfApartment,
-                                                     addNewFlatView.GetBathroomOfApartment,
-                                                     addNewFlatView.GetFloorOfApartment,
-                                                     addNewFlatView.GetNumberOfApartment,
-                                                     addNewFlatView.GetBuiltYearOfApartment,
-                                                     addNewFlatView.GetRenovationYearOfApartment,
-                                                     addNewFlatView.GetAvailabilityOfParkingOfApartment,
-                                                     addNewFlatView.GetDistanceFromMetroOfApartment,
-                                                     addNewFlatView.GetDistanceFromCenterOfApartment,
-                                                     addNewFlatView.GetLivingSpaceOfApartment,
-                                                     addNewFlatView.GetRoomTypeOfApartment,
-                                                     addNewFlatView.GetWindowsExitOfApartment,
-                                                     addNewFlatView.GetRepairTypeOfApartment,
-                                                     addNewFlatView.GetNumberOfOwnersOfApartment,
-                                                     addNewFlatView.GetDescriptionOfApartment,
-                                                     addNewFlatView.GetApartmentPrice,
-                                                     this.guidOwner,
-                                                     "В продаже");
-
-                addNewFlatView.ShowInformation("Квартира успешно добавлена в базу данных и выставлена на продажу!");
+                addNewFlatView.ShowInformation(ex.Message);
             }
-
-            this.addNewFlatView.Close();
         }
     }
 }

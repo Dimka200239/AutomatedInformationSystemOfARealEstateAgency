@@ -20,25 +20,25 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces
         string GetCityOfApartment { get; set; }
         string GetAvenueOfApartment { get; set; }
         string GetHouseOfApartment { get; set; }
-        int GetCountOfRoomsOfApartment { get; set; }
-        float GetTotalAreaOfApartment { get; set; }
-        float GetKitchenAreaOfApartment { get; set; }
+        string GetCountOfRoomsOfApartment { get; set; }
+        string GetTotalAreaOfApartment { get; set; }
+        string GetKitchenAreaOfApartment { get; set; }
         string GetPresenceOfABalconyOfApartment { get; set; }
         string GetBathroomOfApartment { get; set; }
-        int GetFloorOfApartment { get; set; }
-        int GetNumberOfApartment { get; set; }
-        int GetBuiltYearOfApartment { get; set; }
-        int GetRenovationYearOfApartment { get; set; }
+        string GetFloorOfApartment { get; set; }
+        string GetNumberOfApartment { get; set; }
+        string GetBuiltYearOfApartment { get; set; }
+        string GetRenovationYearOfApartment { get; set; }
         string GetAvailabilityOfParkingOfApartment { get; set; }
-        float GetDistanceFromMetroOfApartment { get; set; }
-        float GetDistanceFromCenterOfApartment { get; set; }
-        float GetLivingSpaceOfApartment { get; set; }
+        string GetDistanceFromMetroOfApartment { get; set; }
+        string GetDistanceFromCenterOfApartment { get; set; }
+        string GetLivingSpaceOfApartment { get; set; }
         string GetRoomTypeOfApartment { get; set; }
         string GetWindowsExitOfApartment { get; set; }
         string GetRepairTypeOfApartment { get; set; }
-        int GetNumberOfOwnersOfApartment { get; set; }
+        string GetNumberOfOwnersOfApartment { get; set; }
         string GetDescriptionOfApartment { get; set; }
-        float GetApartmentPrice { get; set; }
+        string GetApartmentPrice { get; set; }
 
         event EventHandler AddNewFlatEvent;
     }
