@@ -65,6 +65,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
             flatListInformation.Add(DataSourseContracts[4, index].Value.ToString());
             flatListInformation.Add(DataSourseContracts[5, index].Value.ToString());
             flatListInformation.Add(DataSourseContracts[6, index].Value.ToString());
+            flatListInformation.Add(DataSourseContracts[7, index].Value.ToString());
 
             return flatListInformation;
         }
@@ -72,6 +73,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Views
         public void SetContractListBindingSourse(List<ContractsModel> contractList)
         {
             DataSourseContracts.DataSource = contractList;
+            DataSourseContracts.Columns["ContractId"].ReadOnly = true;
             DataSourseContracts.Columns["Ownerid"].ReadOnly = true;
             DataSourseContracts.Columns["BuyerId"].ReadOnly = true;
             DataSourseContracts.Columns["ApartmentId"].ReadOnly = true;

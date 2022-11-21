@@ -12,5 +12,9 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces
         List<ContractsModel> GetAllContractsInformation(string inputValue);
 
         ContractsModel GetContractById(Guid ContractId);
+        OwnerModel GetOwnerById(Guid OwnerId);
+        BuyerModel GetBuyerById(Guid BuyerId);
+        FlatModel GetFlatById(Guid FlatId);
+        EmployeeModel GetEmployeeById(Guid EmployeeId);
     }
 }

@@ -142,7 +142,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
             return BuyerId;
         }
 
-        public bool AddNewContract(Guid ownerId,
+        public bool AddNewContract(Guid contractId,
+                                   Guid ownerId,
                                    Guid buyerId,
                                    Guid apartmentId,
                                    Guid employeeId, 
@@ -157,13 +158,15 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories
                     connection.Open();
                     command.Connection = connection;
                     command.CommandText = @"INSERT INTO ContractsForThePurchaseOfAnApartment
-                                            VALUES (@ownerId, " +
+                                            VALUES (@contractId, " +
+                                                   "@ownerId, " +
                                                    "@buyerId, " +
                                                    "@apartmentId, " +
                                                    "@employeeId, " +
                                                    "@date, " +
                                                    "@price, " +
                                                    "@cashFlow)";
+                    command.Parameters.Add("@contractId", SqlDbType.UniqueIdentifier).Value = contractId;
                     command.Parameters.Add("@ownerId", SqlDbType.UniqueIdentifier).Value = ownerId;
                     command.Parameters.Add("@buyerId", SqlDbType.UniqueIdentifier).Value = buyerId;
                     command.Parameters.Add("@apartmentId", SqlDbType.UniqueIdentifier).Value = apartmentId;

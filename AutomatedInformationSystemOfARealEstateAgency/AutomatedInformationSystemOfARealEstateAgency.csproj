@@ -65,6 +65,7 @@
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\EmployeePresenter.cs" />
     <Compile Include="Presenters\ShowAllContractsPresenter.cs" />
+    <Compile Include="Presenters\ShowInformationAboutContractPresenter.cs" />
     <Compile Include="Presenters\ShowInformationAboutFlatPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Views\Interfaces\IMainView.cs" />
     <Compile Include="Views\Interfaces\IEmployeeView.cs" />
     <Compile Include="Views\Interfaces\IShowAllContractsView.cs" />
+    <Compile Include="Views\Interfaces\IShowInformationAboutContractView.cs" />
     <Compile Include="Views\Interfaces\IShowInformationAboutFlatView.cs" />
     <Compile Include="Views\MainMenuView.cs">
       <SubType>Form</SubType>
@@ -125,6 +127,12 @@
     <Compile Include="Views\ShowAllContractsView.Designer.cs">
       <DependentUpon>ShowAllContractsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShowInformationAboutContractView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ShowInformationAboutContractView.Designer.cs">
+      <DependentUpon>ShowInformationAboutContractView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShowInformationAboutFlatView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,10 +151,12 @@
     <Compile Include="_Repositories\Interfaces\IMainMenuRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IEmployeeRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IShowAllContractsRepository.cs" />
+    <Compile Include="_Repositories\Interfaces\IShowInformationAboutContractRepository.cs" />
     <Compile Include="_Repositories\Interfaces\IShowInformationAboutFlatRepository.cs" />
     <Compile Include="_Repositories\MainMenuRepository.cs" />
     <Compile Include="_Repositories\EmployeeRepository.cs" />
     <Compile Include="_Repositories\ShowAllContractsRepository.cs" />
+    <Compile Include="_Repositories\ShowInformationAboutContractRepository.cs" />
     <Compile Include="_Repositories\ShowInformationAboutFlatRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ShowAllContractsView.resx">
       <DependentUpon>ShowAllContractsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ShowInformationAboutContractView.resx">
+      <DependentUpon>ShowInformationAboutContractView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ShowInformationAboutFlatView.resx">
       <DependentUpon>ShowInformationAboutFlatView.cs</DependentUpon>

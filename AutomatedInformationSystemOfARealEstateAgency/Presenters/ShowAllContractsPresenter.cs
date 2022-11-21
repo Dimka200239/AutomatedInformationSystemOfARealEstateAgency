@@ -1,4 +1,5 @@
-﻿using AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces;
+﻿using AutomatedInformationSystemOfARealEstateAgency._Repositories;
+using AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces;
 using AutomatedInformationSystemOfARealEstateAgency.Models;
 using AutomatedInformationSystemOfARealEstateAgency.Views;
 using AutomatedInformationSystemOfARealEstateAgency.Views.Interfaces;
@@ -42,7 +43,24 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 
         private void ShowInfoAboutContract(object sender, EventArgs e)
         {
+            var resultContract = contractsView.GetSelectedRow();
 
+            var resultC = repository.GetContractById(new Guid(resultContract[0]));
+            var resultO = repository.GetOwnerById(new Guid(resultContract[1]));
+            var resultB = repository.GetBuyerById(new Guid(resultContract[2]));
+            var resultF = repository.GetFlatById(new Guid(resultContract[3]));
+            var resultE = repository.GetEmployeeById(new Guid(resultContract[4]));
+
+            IShowInformationAboutContractView newView = ShowInformationAboutContractView.GetInstance();
+            IShowInformationAboutContractRepository newRepository = new ShowInformationAboutContractRepository(sqlConnectionString);
+            new ShowInformationAboutContractPresenter(newView,
+                                                      newRepository,
+                                                      sqlConnectionString,
+                                                      resultC,
+                                                      resultO,
+                                                      resultB,
+                                                      resultF,
+                                                      resultE);
         }
     }
 }

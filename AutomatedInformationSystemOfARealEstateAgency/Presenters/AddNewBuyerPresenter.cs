@@ -77,14 +77,14 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
                     var newIdBuyer = Guid.NewGuid();
 
                     this.repository.AddNewBuyerInDataBase(newIdBuyer,
-                                                      addNewBuyerView.GetBuyerName,
-                                                      addNewBuyerView.GetBuyerSerName,
-                                                      addNewBuyerView.GetBuyerPatronymic,
-                                                      Convert.ToInt32(addNewBuyerView.GetBuyerYearOfBirth),
-                                                      addNewBuyerView.GetBuyerPhone,
-                                                      addNewBuyerView.GetBuyerSeriesPassport,
-                                                      addNewBuyerView.GetBuyerNumberPassport,
-                                                      addNewBuyerView.GetBuyerSubdivisionCodePassport);
+                                                          addNewBuyerView.GetBuyerName,
+                                                          addNewBuyerView.GetBuyerSerName,
+                                                          addNewBuyerView.GetBuyerPatronymic,
+                                                          Convert.ToInt32(addNewBuyerView.GetBuyerYearOfBirth),
+                                                          addNewBuyerView.GetBuyerPhone,
+                                                          addNewBuyerView.GetBuyerSeriesPassport,
+                                                          addNewBuyerView.GetBuyerNumberPassport,
+                                                          addNewBuyerView.GetBuyerSubdivisionCodePassport);
                     addNewBuyerView.ShowInformation("Новый покупатель успешно добавлен!");
                 }
                 else
@@ -96,8 +96,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
                                                       addNewBuyerView.GetBuyerNumberPassport,
                                                       addNewBuyerView.GetBuyerSubdivisionCodePassport);
 
-                Console.WriteLine(resultBuyerId);
-                repository.AddNewContract(ownerId, resultBuyerId, apartmentId, employeeId, date, price, cashFlow);
+                var newIdContract = Guid.NewGuid();
+                repository.AddNewContract(newIdContract, ownerId, resultBuyerId, apartmentId, employeeId, date, price, cashFlow);
                 repository.TakApartmentOffTheMarket(apartmentId);
 
                 addNewBuyerView.ShowInformation("Квартира успешно оформлена!");

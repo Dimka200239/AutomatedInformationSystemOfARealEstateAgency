@@ -116,6 +116,13 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
         {
             if (flatView != null) { flatView.Close(); }
             if (addNewOwnerView != null) { addNewOwnerView.Close(); }
+            if (contractsView != null) { contractsView.Close(); }
+
+            mainMenuView.Close();
+
+            IEmployeeView view = EmployeeView.GetInstance((MainView)mainView);
+            IEmployeeRepository repository = new EmployeeRepository(sqlConnectionString);
+            new EmployeePresenter(mainView, view, repository, sqlConnectionString);
         }
     }
 }

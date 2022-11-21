@@ -26,7 +26,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency._Repositories.Interfaces
                           string passportNumberOfBuyer,
                           string passportSubdivisionCodeOfBuyer);
 
-        bool AddNewContract(Guid ownerId,
+        bool AddNewContract(Guid contractId,
+                            Guid ownerId,
                             Guid buyerId,
                             Guid apartmentId,
                             Guid employeeId,

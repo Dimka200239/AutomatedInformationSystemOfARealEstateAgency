@@ -59,7 +59,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
             }
             else
             {
-                this.userView.Hide();
+                this.userView.Close();
 
                 IMainMenuView view = MainMenuView.GetInstance((MainView)mainView);
                 IMainMenuRepository repository = new MainMenuRepository(sqlConnectionString);
