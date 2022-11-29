@@ -24,56 +24,56 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
 
         // Свойства - Валидатор
 
-        [DisplayName("Contract's ID")]
+        [DisplayName("Айди договора")]
         public Guid ContractId
         {
             get { return contractId; }
             set { contractId = value; }
         }
 
-        [DisplayName("Owner's ID")]
+        [DisplayName("Айди продавца")]
         public Guid Ownerid
         {
             get { return ownerid; }
             set { ownerid = value; }
         }
 
-        [DisplayName("Buyer's ID")]
+        [DisplayName("Айди покупателя")]
         public Guid BuyerId
         {
             get { return buyerId; }
             set { buyerId = value; }
         }
 
-        [DisplayName("Apartment's ID")]
+        [DisplayName("Айди квартиры")]
         public Guid ApartmentId
         {
             get { return apartmentId; }
             set { apartmentId = value; }
         }
 
-        [DisplayName("Employee's ID")]
+        [DisplayName("Айди сотрудника")]
         public Guid EmployeeId
         {
             get { return employeeId; }
             set { employeeId = value; }
         }
 
-        [DisplayName("Date")]
+        [DisplayName("Дата")]
         public string Date
         {
             get { return date; }
             set { date = value; }
         }
 
-        [DisplayName("Price")]
+        [DisplayName("Цена")]
         public float Price
         {
             get { return price; }
             set { price = value; }
         }
 
-        [DisplayName("CashFlow")]
+        [DisplayName("Коммисия")]
         public float CashFlow
         {
             get { return cashFlow; }

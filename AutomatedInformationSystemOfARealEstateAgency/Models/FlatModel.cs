@@ -43,14 +43,14 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
 
         // Свойства - Валидатор
 
-        [DisplayName("Flat's IdOfApartment")]
+        [DisplayName("Айди квартиры")]
         public Guid IdOfApartment
         {
             get { return idOfApartment; }
             set { idOfApartment = value; }
         }
 
-        [DisplayName("Flat's cityOfApartment")]
+        [DisplayName("Город")]
         [Required(ErrorMessage = "Требуется название города")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Название города должно содержать от 3 до 50 символов")]
         public string CityOfApartment
@@ -59,7 +59,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { cityOfApartment = value; }
         }
 
-        [DisplayName("Flat's AvenueOfApartment")]
+        [DisplayName("Улица")]
         [Required(ErrorMessage = "Требуется название улицы")]
         [StringLength(50, MinimumLength = 4, ErrorMessage = "Название улицы должно содержать от 4 до 50 символов")]
         public string AvenueOfApartment
@@ -68,7 +68,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { avenueOfApartment = value; }
         }
 
-        [DisplayName("Flat's HouseOfApartment")]
+        [DisplayName("Номер дома")]
         [Required(ErrorMessage = "Требуется номер дома")]
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Номер дома должен содержать хотя бы 1 символ")]
         public string HouseOfApartment
@@ -77,7 +77,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { houseOfApartment = value; }
         }
 
-        [DisplayName("Flat's CountOfRoomsOfApartment")]
+        [DisplayName("Кол-во комнат")]
         [Required(ErrorMessage = "Требуется кол-во команат")]
         [Range(1, 10, ErrorMessage = "Кол-во команат должно быть больше 0 и меньше 10")]
         public int CountOfRoomsOfApartment
@@ -86,7 +86,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { countOfRoomsOfApartment = value; }
         }
 
-        [DisplayName("Flat's TotalAreaOfApartment")]
+        [DisplayName("Общая площадь")]
         [Required(ErrorMessage = "Требуется общая площадь")]
         [Range(1, 1000, ErrorMessage = "Общая площадь должна быть больше 0 и меньше 1000")]
         public float TotalAreaOfApartment
@@ -95,7 +95,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { totalAreaOfApartment = value; }
         }
 
-        [DisplayName("Flat's KitchenAreaOfApartment")]
+        [DisplayName("Площадь кухни")]
         [Required(ErrorMessage = "Требуется площадь кухни")]
         [Range(1, 1000, ErrorMessage = "Площадь кухни должна быть больше 0 и меньше 1000")]
         public float KitchenAreaOfApartment
@@ -104,7 +104,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { kitchenAreaOfApartment = value; }
         }
 
-        [DisplayName("Flat's PresenceOfABalconyOfApartment")]
+        [DisplayName("Наличие балкона")]
         [Required(ErrorMessage = "Требуется наличие балкона")]
         public string PresenceOfABalconyOfApartment
         {
@@ -112,7 +112,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { presenceOfABalconyOfApartment = value; }
         }
 
-        [DisplayName("Flat's BathroomOfApartment")]
+        [DisplayName("Тип санузла")]
         [Required(ErrorMessage = "Требуется тип санузла")]
         public string BathroomOfApartment
         {
@@ -120,7 +120,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { bathroomOfApartment = value; }
         }
 
-        [DisplayName("Flat's FloorOfApartment")]
+        [DisplayName("Этаж")]
         [Required(ErrorMessage = "Требуется этаж")]
         [Range(1, 1000, ErrorMessage = "Этаж должен быть больше 0")]
         public int FloorOfApartment
@@ -129,7 +129,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { floorOfApartment = value; }
         }
 
-        [DisplayName("Flat's NumberOfApartment")]
+        [DisplayName("Номер квартиры")]
         [Required(ErrorMessage = "Требуется номер квартиры")]
         [Range(1, 1000, ErrorMessage = "Номер квартиры должен быть больше 0")]
         public int NumberOfApartment
@@ -138,7 +138,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { numberOfApartment = value; }
         }
 
-        [DisplayName("Flat's BuiltYearOfApartment")]
+        [DisplayName("Год постройки")]
         [Required(ErrorMessage = "Требуется год постройки дома")]
         [Range(1922, 2022, ErrorMessage = "Год постройки дома должен быть больше 1922 и меньше 2022")]
         public int BuiltYearOfApartment
@@ -147,7 +147,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { builtYearOfApartment = value; }
         }
 
-        [DisplayName("Flat's RenovationYearOfApartment")]
+        [DisplayName("Год ремонта")]
         [Required(ErrorMessage = "Требуется год последнего ремонта")]
         [Range(1922, 2022, ErrorMessage = "Год последнего ремонта должен быть больше 1922 и меньше 2022")]
         public int RenovationYearOfApartment
@@ -156,7 +156,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { renovationYearOfApartment = value; }
         }
 
-        [DisplayName("Flat's AvailabilityOfParkingOfApartment")]
+        [DisplayName("Тип парковки")]
         [Required(ErrorMessage = "Требуется тип парковки")]
         public string AvailabilityOfParkingOfApartment
         {
@@ -164,7 +164,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { availabilityOfParkingOfApartment = value; }
         }
 
-        [DisplayName("Flat's DistanceFromMetroOfApartment")]
+        [DisplayName("Расстояние до метро")]
         [Required(ErrorMessage = "Требуется расстояние до метро")]
         [Range(0.0001, 1000, ErrorMessage = "Расстояние до метро должно быть больше 0")]
         public float DistanceFromMetroOfApartment
@@ -173,7 +173,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { distanceFromMetroOfApartment = value; }
         }
 
-        [DisplayName("Flat's DistanceFromCenterOfApartment")]
+        [DisplayName("Расстояние до центра")]
         [Required(ErrorMessage = "Требуется расстояние до центра")]
         [Range(0.0001, 1000, ErrorMessage = "Расстояние до центра должно быть больше 0")]
         public float DistanceFromCenterOfApartment
@@ -182,7 +182,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { distanceFromCenterOfApartment = value; }
         }
 
-        [DisplayName("Flat's LivingSpaceOfApartment")]
+        [DisplayName("Жилая площадь")]
         [Required(ErrorMessage = "Требуется жилая площадь")]
         [Range(1, 1000, ErrorMessage = "Жилая площадь должна быть больше 0")]
         public float LivingSpaceOfApartment
@@ -191,7 +191,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { livingSpaceOfApartment = value; }
         }
 
-        [DisplayName("Flat's RoomTypeOfApartment")]
+        [DisplayName("Тип комнат")]
         [Required(ErrorMessage = "Требуется тип комнат")]
         public string RoomTypeOfApartment
         {
@@ -199,7 +199,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { roomTypeOfApartment = value; }
         }
 
-        [DisplayName("Flat's WindowsExitOfApartment")]
+        [DisplayName("Тип окон")]
         [Required(ErrorMessage = "Требуется тип окон")]
         public string WindowsExitOfApartment
         {
@@ -207,7 +207,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { windowsExitOfApartment = value; }
         }
 
-        [DisplayName("Flat's RepairTypeOfApartment")]
+        [DisplayName("Тип ремонта")]
         [Required(ErrorMessage = "Требуется тип ремонта")]
         public string RepairTypeOfApartment
         {
@@ -215,7 +215,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { repairTypeOfApartment = value; }
         }
 
-        [DisplayName("Flat's NumberOfOwnersOfApartment")]
+        [DisplayName("Кол-во собственников")]
         [Required(ErrorMessage = "Требуется кол-во собственников")]
         [Range(1, 1000, ErrorMessage = "Кол-во собственников должно быть больше 0")]
         public int NumberOfOwnersOfApartment
@@ -224,30 +224,30 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Models
             set { numberOfOwnersOfApartment = value; }
         }
 
-        [DisplayName("Flat's DescriptionOfApartment")]
+        [DisplayName("Описание")]
         public string DescriptionOfApartment
         {
             get { return descriptionOfApartment; }
             set { descriptionOfApartment = value; }
         }
 
-        [DisplayName("Flat's ApartmentPrice")]
+        [DisplayName("Цена")]
         [Required(ErrorMessage = "Требуется цена продажи")]
-        [Range(1, 100000000, ErrorMessage = "Цена продажи должна быть больше 0")]
+        [Range(1, 10000000, ErrorMessage = "Цена продажи должна быть больше 0 и меньше 10 млн рублей")]
         public float ApartmentPrice
         {
             get { return apartmentPrice; }
             set { apartmentPrice = value; }
         }
 
-        [DisplayName("Flat's ApartmentOwner")]
+        [DisplayName("Айди владельца")]
         public Guid ApartmentOwner
         {
             get { return apartmentOwner; }
             set { apartmentOwner = value; }
         }
 
-        [DisplayName("Flat's StatusOfApartment")]
+        [DisplayName("Статус")]
         public string StatusOfApartment
         {
             get { return statusOfApartment; }

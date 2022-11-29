@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Globalization;
 
 namespace AutomatedInformationSystemOfARealEstateAgency
 {
@@ -18,6 +19,8 @@ namespace AutomatedInformationSystemOfARealEstateAgency
         [STAThread]
         static void Main()
         {
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.GetCultureInfo("en-EN");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

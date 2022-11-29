@@ -88,8 +88,7 @@ namespace AutomatedInformationSystemOfARealEstateAgency.Presenters
 
                 var date = DateTime.Now;
 
-                var cash = Convert.ToString(int.Parse(resultFlat[22]) * 0.1);
-                cash = cash.Replace(".", ",");
+                var cash = Convert.ToString(int.Parse(resultFlat[22]) * 0.04);
 
                 IAddNewBuyerView newView = AddNewBuyerView.GetInstance();
                 IAddNewBuyerRepository newRepository = new AddNewBuyerRepository(sqlConnectionString);
