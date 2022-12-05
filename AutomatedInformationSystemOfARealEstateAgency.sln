@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedInformationSystemOfARealEstateAgency", "AutomatedInformationSystemOfARealEstateAgency\AutomatedInformationSystemOfARealEstateAgency.csproj", "{7A5052FD-E50F-496F-8C54-A7CEBB714667}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AISofRealEstateAgency", "AISofRealEstateAgency\AISofRealEstateAgency.vdproj", "{73B1F319-D6FC-489E-BF19-256A602B08FD}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AISOfARealEstateAgency2", "AISOfARealEstateAgency2\AISOfARealEstateAgency2.vdproj", "{607B7B80-D122-4D6E-8B7C-0FBBAA0CD485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{7A5052FD-E50F-496F-8C54-A7CEBB714667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A5052FD-E50F-496F-8C54-A7CEBB714667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A5052FD-E50F-496F-8C54-A7CEBB714667}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73B1F319-D6FC-489E-BF19-256A602B08FD}.Debug|Any CPU.ActiveCfg = Debug
-		{73B1F319-D6FC-489E-BF19-256A602B08FD}.Release|Any CPU.ActiveCfg = Release
+		{607B7B80-D122-4D6E-8B7C-0FBBAA0CD485}.Debug|Any CPU.ActiveCfg = Debug
+		{607B7B80-D122-4D6E-8B7C-0FBBAA0CD485}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
